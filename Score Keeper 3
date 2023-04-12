@@ -1,0 +1,297 @@
+import React, { Component } from 'react';
+import { AppRegistry, Text, View, StyleSheet, Image, TextInput, ImageBackground, TouchableHighlight, Alert, Dimensions } from 'react-native';
+import Constants from 'expo-constants';
+
+let deviceHeight = Dimensions.get('window').height;
+let deviceWidth = Dimensions.get('window').width;
+let numba1 = 0;
+export default class App extends Component {
+    state = {
+        name1: 'PlayerA',
+        name2: 'PlayerB',
+        name3: 'PlayerC',
+        num1: deviceHeight,
+        num2: deviceWidth,
+        num3: 69,
+    };
+
+    _handleTextChangeA = name1 => {
+        this.setState({ name1 });
+    };
+    _handleTextChangeB = name2 => {
+        this.setState({ name2 });
+    };
+    _handleTextChangeC = name3 => {
+        this.setState({ name3 });
+    };
+    _handleTextChangeX = num1 => {
+        this.setState({ num1 });
+    };
+    _handleTextChangeY = num2 => {
+        this.setState({ num2 });
+    };
+    _handleTextChangeZ = num3 => {
+        this.setState({ num3 });
+    };
+    
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.blackTop}>
+                    <Text style={styles.logoText}>
+                        Cards Against Humanity
+                    </Text>
+                </View>
+
+                    <ImageBackground
+                        style={styles.mainPlay}
+                        source={{ uri: 'https://codehs.com/uploads/d55aaaddc192a09093662af46a24e5c4' }}
+                    >
+                    
+                    
+                <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name1}
+                            onChangeText={this._handleTextChangeA}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View>
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name1 + ' had a point subtracted')
+                                this.state.num1 = this.state.num1 - 1
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num1}
+                                    onChangeText={this._handleTextChangeX}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name1 + ' Won this round!')
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name2}
+                            onChangeText={this._handleTextChangeB}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View> 
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name2 + ' had a point subtracted')
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num2}
+                                    onChangeText={this._handleTextChangeY}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name2 + ' Won this round!')
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name3}
+                            onChangeText={this._handleTextChangeC}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View>
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name3 + ' had a point subtracted')
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num3}
+                                    onChangeText={this._handleTextChangeZ}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={() => {
+                                alert(this.state.name3 + ' Won this round!')
+                            }}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        
+                    </View>
+                    </ImageBackground>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#ffffff'
+    },
+    blackTop: {
+        height: deviceHeight/5,
+        backgroundColor: '#1c1c1c',
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    logoText: {
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/16,
+        fontWeight: "bold",
+        color: "white",
+    },
+    //Filler numbers for now
+    playerText: {
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/16,
+        fontWeight: "bold",
+        color: "black",
+    },
+    mainPlay: {
+        height: 4*deviceHeight/5,
+        width: deviceWidth,
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    mainButton: {
+        height: deviceHeight/9,
+        width: 6*deviceWidth/10, 
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+        flexDirection: 'row',
+        
+    },
+    mainButtonAbove: {
+        height: deviceHeight/13,
+        width: 6*deviceWidth/10, 
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    mainButtonAboveText: {
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/27,
+        fontWeight: "bold",
+        color: "black",
+    },
+    mainButtonPt2: {
+        height: deviceHeight/9,
+        width: deviceWidth/6.67, 
+        backgroundColor: 'black',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+    },
+    mainButtonPt3: {
+        height: deviceHeight/9,
+        width: deviceWidth/3.75, 
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+    },
+    textTest: {
+         width: 2*deviceWidth/3,
+         height: deviceHeight/13,
+         padding: deviceWidth/37.5,
+         alignItems: 'center',
+         justifyContent: 'center',
+         fontSize: deviceHeight/27,
+         fontFamily: "Helvetica",
+         fontWeight: "bold",
+         color: "black",
+         alignSelf: 'center',
+    },
+    textTestNum: {
+         width: deviceWidth/3.75,
+         height: deviceHeight/13,
+         padding: deviceWidth/37.5,
+         alignItems: 'center',
+         justifyContent: 'center',
+         fontSize: deviceHeight/27,
+         fontFamily: "Helvetica",
+         fontWeight: "bold",
+         color: "black",
+         alignSelf: 'center',
+    },
+});

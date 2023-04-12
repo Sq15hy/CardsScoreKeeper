@@ -1,0 +1,419 @@
+import React, { Component } from 'react';
+import { AppRegistry, Text, View, TouchableHighlight, TextInput, Dimensions, StyleSheet, ImageBackground, Image } from 'react-native';
+import Constants from 'expo-constants';
+let deviceHeight = Dimensions.get('window').height;
+let deviceWidth = Dimensions.get('window').width;
+export default class App extends Component {
+   state = {
+        name1: 'PlayerA',
+        name2: 'PlayerB',
+        name3: 'PlayerC',
+        num1: 0,
+        num2: 0,
+        num3: 0,
+        wins1: 0,
+        wins2: 0,
+        wins3: 0,
+    };
+
+    _handleTextChangeA = name1 => {
+        this.setState({ name1 });
+    };
+    _handleTextChangeB = name2 => {
+        this.setState({ name2 });
+    };
+    _handleTextChangeC = name3 => {
+        this.setState({ name3 });
+    };
+    _handleTextChangeX = num1 => {
+        this.setState({ num1 });
+    };
+    _handleTextChangeY = num2 => {
+        this.setState({ num2 });
+    };
+    _handleTextChangeZ = num3 => {
+        this.setState({ num3 });
+    };
+    set10A = () => {
+        this.setState({num1: this.state.num1 + 1})
+        if(this.state.num1  == 10) {
+            this.setState({wins1: this.state.wins1 + 1})
+            this.setState({num1: 0})
+        }
+    };
+    set10B = () => {
+        this.setState({num2: this.state.num2 + 1})
+        if(this.state.num2  == 10) {
+            this.setState({wins2: this.state.wins2 + 1})
+            this.setState({num2: 0})
+        }
+    };
+    set10C = () => {
+        this.setState({num3: this.state.num3 + 1})
+        if(this.state.num3  == 10) {
+            this.setState({wins3: this.state.wins3 + 1})
+            this.setState({num3: 0})
+        }
+    };
+    add1 = () => {
+        this.setState({
+            num1: this.state.num1 + 1
+        })
+    };
+    add2 = () => {
+        this.setState({
+            num2: this.state.num2 + 1
+        })
+    };
+    add3 = () => {
+        this.setState({
+            num3: this.state.num3 + 1
+        })
+    };
+    sub1 = () => {
+        if (this.state.num1 > 0) {
+            this.setState({num1: this.state.num1 - 1})
+        }
+    };
+    sub2 = () => {
+        if (this.state.num2 > 0) {
+            this.setState({num1: this.state.num2 - 1})
+        }
+    };
+    sub3 = () => {
+        if (this.state.num3 > 0) {
+            this.setState({num1: this.state.num3 - 1})
+        }
+    };
+    
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.blackTop}>
+                    <Text style={styles.logoText}>
+                        Cards Against Humanity
+                    </Text>
+                </View>
+
+                    <ImageBackground
+                        style={styles.mainPlay}
+                        source={{ uri: 'https://codehs.com/uploads/d55aaaddc192a09093662af46a24e5c4' }}
+                    >
+                    
+                    
+                <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name1}
+                            onChangeText={this._handleTextChangeA}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View>
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={this.sub1}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num1}
+                                    onChangeText={this._handleTextChangeX}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={this.set10A}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name2}
+                            onChangeText={this._handleTextChangeB}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View> 
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={this.sub2}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num2}
+                                    onChangeText={this._handleTextChangeY}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={this.set10B}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.mainButtonAbove}>
+                    <Text style={styles.mainButtonAboveText}>
+                        <TextInput
+                            value={this.state.name3}
+                            onChangeText={this._handleTextChangeC}
+                            style={styles.textTest}
+                            
+                        />
+                    </Text>
+                    </View>
+                    <View style={styles.mainButton}>
+                        <TouchableHighlight
+                            onPress={this.sub3}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/98988a30526209453e4fe18527e56941' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10}}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        <View style={styles.mainButtonPt3}>
+                            <Text style={styles.playerText}>
+                                <TextInput
+                                    value={this.state.num3}
+                                    onChangeText={this._handleTextChangeZ}
+                                    style={styles.textTestNum}
+                            
+                                />
+                            </Text>
+                        </View>
+                        <TouchableHighlight
+                            onPress={this.set10C}
+                        >
+                        <View style={styles.mainButtonPt2}>
+                            <Image
+                                source={{ uri: 'https://codehs.com/uploads/3bcafa59561cf005be7515ef8bbf562d' }}
+                                style={{ height: deviceHeight/10, width: deviceHeight/10 }}
+                            />
+                        </View>
+                        </TouchableHighlight>
+                        
+                    </View>
+                    </ImageBackground>
+                    <View style={styles.wins}>
+                    
+                        <View style={styles.winBox}>
+                            <View style={styles.winLet}>
+                                <Text style={styles.winLetText}>
+                                {this.state.name1.charAt(0)}
+                                </Text>
+                            </View>
+                            <View style={styles.winNum}>
+                                <Text style={styles.winNumText}>
+                                {this.state.wins1}
+                                </Text>
+                            </View>
+                        </View>
+                        
+                        <View style={styles.winBox}>
+                            <View style={styles.winLet}>
+                                <Text style={styles.winLetText}>
+                                {this.state.name2.charAt(0)}
+                                </Text>
+                            </View>
+                            <View style={styles.winNum}>
+                                <Text style={styles.winNumText}>
+                                {this.state.wins2}
+                                </Text>
+                            </View>
+                        </View>
+                        
+                        <View style={styles.winBox}>
+                            <View style={styles.winLet}>
+                                <Text style={styles.winLetText}>
+                                {this.state.name3.charAt(0)}
+                                </Text>
+                            </View>
+                            <View style={styles.winNum}>
+                                <Text style={styles.winNumText}>
+                                {this.state.wins3}
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#ffffff'
+    },
+    blackTop: {
+        height: deviceHeight/5,
+        backgroundColor: '#1c1c1c',
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    logoText: {
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/16,
+        fontWeight: "bold",
+        color: "white",
+    },
+    playerText: {
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/16,
+        fontWeight: "bold",
+        color: "black",
+    },
+    mainPlay: {
+        height: 3.25*deviceHeight/5,
+        width: deviceWidth,
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    mainButton: {
+        height: deviceHeight/9,
+        width: 6*deviceWidth/10, 
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+        flexDirection: 'row',
+        
+    },
+    mainButtonAbove: {
+        height: deviceHeight/13,
+        width: 6*deviceWidth/10, 
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    mainButtonAboveText: {
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "Helvetica",
+        fontSize: deviceHeight/27,
+        fontWeight: "bold",
+        color: "black",
+    },
+    mainButtonPt2: {
+        height: deviceHeight/9,
+        width: deviceWidth/6.67, 
+        backgroundColor: 'black',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+    },
+    mainButtonPt3: {
+        height: deviceHeight/9,
+        width: deviceWidth/3.75, 
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: deviceWidth/50,
+    },
+    textTest: {
+         width: 2*deviceWidth/3,
+         height: deviceHeight/13,
+         padding: deviceWidth/37.5,
+         alignItems: 'center',
+         justifyContent: 'center',
+         fontSize: deviceHeight/27,
+         fontFamily: "Helvetica",
+         fontWeight: "bold",
+         color: "black",
+         alignSelf: 'center',
+    },
+    textTestNum: {
+         width: deviceWidth/3.75,
+         height: deviceHeight/13,
+         padding: deviceWidth/37.5,
+         alignItems: 'center',
+         justifyContent: 'center',
+         fontSize: deviceHeight/27,
+         fontFamily: "Helvetica",
+         fontWeight: "bold",
+         color: "black",
+         alignSelf: 'center',
+    },
+    wins: {
+        height: 0.75*deviceHeight/5,
+        width: deviceWidth,
+        backgroundColor: 'white',
+        borderColor: 'Black',
+        borderTopWidth: 10,
+        flexDirection: "row",
+        alignItems: 'center',
+    },
+    winBox: {
+      height: 0.55*deviceHeight/5,
+      width: 0.3*deviceWidth,
+      backgroundColor: "red",
+      marginLeft: 0.025*deviceWidth,
+      flexDirection: 'row',
+    },
+    winLet: {
+        height: 0.55*deviceHeight/5,
+        width: 0.15*deviceWidth,
+        backgroundColor: 'black',
+        alignItems: "center",
+        justifyContent: 'center',
+    },
+    winNum: {
+        height: 0.55*deviceHeight/5,
+        width: 0.15*deviceWidth,
+        backgroundColor: 'white',
+        alignItems: "center",
+        justifyContent: 'center',
+        borderTopWidth: 3,
+        borderBottomWidth: 3,
+        borderRightWidth: 3,
+    },
+    winLetText: {
+      fontSize: deviceHeight/12,
+      fontWeight: 'bold',
+      color: 'white',
+    },
+    winNumText: {
+      fontSize: deviceHeight/12,
+      fontWeight: 'bold',
+      color: 'black',
+    },
+});

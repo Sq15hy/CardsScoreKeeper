@@ -1,0 +1,65 @@
+import React, { Component } from 'react';
+import { AppRegistry, Text, View, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
+
+export default class App extends Component {
+    render() {
+        return (
+            <View>
+            <View style={styles.box}>
+                <Text>
+                    Hello, Mom!
+                </Text>
+            </View>
+            <View style={styles.box}>
+                <Text>
+                    Hello, Dad!
+                </Text>
+            </View>
+            <View style={styles.box}>
+                <Text>
+                    Hello, Grandma!
+                </Text>
+            </View>
+            </View>
+      );
+   }
+}
+
+const styles = StyleSheet.create({
+    box: {
+        height: 100,
+        justifyContent: 'center',
+    },
+    title: {
+        color: 'white',
+        fontSize: 30,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 10,
+    },
+    paragraph: {
+        color: 'white',
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 10,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+    },
+    button: {
+        height: 50,
+        width: 90,
+        backgroundColor: 'green',
+        borderColor: 'white',
+        borderWidth: 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 10,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 10,
+        textAlign: 'center',
+    },
+});
